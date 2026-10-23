@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MINIMALIST CYBERPUNK 2077 (NETRUNNER CORE EDITION)
+   CYBERSPOTIFY 2077 (VELVETSKYE WALLPAPER EDITION)
    ========================================================================== */
 
 :root {
@@ -7,35 +7,41 @@
     --cyber-cyan: #00f0ff;
     --cyber-magenta: #ff0055;
     --cyber-black: #000000;
-    --cyber-grid: rgba(0, 240, 255, 0.03);
 }
 
-/* 1. SEAMLESS INTERFACE & BORDERLESS CANVAS */
+/* 1. WALLPAPER INJECTION & SEAMLESS FRAMEWORK */
 * {
     border-radius: 0px !important;
     box-shadow: none !important;
 }
 
-/* Eradicate stock layout panels and structural borders */
-.Root__top-container,
-.main-navBar-navBar,
-.Root__now-playing-bar,
-.main-rootlist-rootlist,
-.main-view-container,
-.main-nowPlayingBar-container {
-    border: none !important;
+/* Inject your custom background photo across the global canvas */
+.Root__top-container {
+    background-image: url('bg.png') !important;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
     background-color: var(--cyber-black) !important;
 }
 
-/* Inject abstract netrunner matrix grid onto the background canvas */
-.Root__top-container {
-    background-image: 
-        linear-gradient(var(--cyber-grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--cyber-grid) 1px, transparent 1px);
-    background-size: 20px 20px;
+/* 2. THE TACTICAL DARK HUD OVERLAYS (Protects text readability over yellow) */
+.main-navBar-navBar,
+.main-view-container,
+.main-nowPlayingBar-container,
+.Root__now-playing-bar {
+    border: none !important;
+    /* This creates a clean 85% dark tinted layer so you can read your music panels */
+    background-color: rgba(3, 3, 5, 0.85) !important;
+    /* Softly blurs the wallpaper behind the panels for a premium high-end interface vibe */
+    backdrop-filter: blur(8px) !important;
 }
 
-/* 2. MAIN TRACK ROW HOVERS */
+/* Center main dashboard section gets a slightly lighter contrast tint */
+.main-view-container__scroll-node-child {
+    background-color: transparent !important;
+}
+
+/* 3. MAIN TRACK ROW HOVERS */
 .main-trackList-trackListRow {
     border-left: 2px solid transparent;
     transition: all 0.15s ease;
@@ -44,7 +50,7 @@
 /* Track row selection and hovers using subtle cyan tint */
 .main-trackList-trackListRow--isSelected, 
 .main-trackList-trackListRow:hover {
-    background-color: rgba(0, 240, 255, 0.07) !important;
+    background-color: rgba(0, 240, 255, 0.08) !important;
     border-left: 2px solid var(--cyber-cyan);
 }
 
@@ -53,7 +59,7 @@
     background-color: rgba(255, 238, 0, 0.05) !important;
 }
 
-/* 3. SIDEBAR NAVIGATION SYSTEMS */
+/* 4. SIDEBAR NAVIGATION SYSTEMS */
 .main-navBar-navBarLinkActive,
 .main-collectionLinkButton-collectionLinkButtonActive {
     background: linear-gradient(90deg, rgba(255, 238, 0, 0.08) 0%, transparent 100%) !important;
@@ -63,13 +69,13 @@
 
 /* Mute inactive tabs to maintain high contrast hierarchy */
 .main-navBar-navBarLink:not(.main-navBar-navBarLinkActive) {
-    color: #555566 !important;
+    color: #888899 !important;
 }
 .main-navBar-navBarLink:not(.main-navBar-navBarLinkActive):hover {
     color: var(--cyber-cyan) !important;
 }
 
-/* 4. GLOWING ACTION HUD BUTTONS */
+/* 5. GLOWING ACTION HUD BUTTONS */
 .main-playButton-playButton, .main-playButton-PrimaryButtons {
     background-color: var(--cyber-yellow) !important;
     color: var(--cyber-black) !important;
@@ -81,7 +87,7 @@
     filter: drop-shadow(0 0 10px var(--cyber-cyan));
 }
 
-/* 5. SEEKER & AUDIO CONTROL MODULES */
+/* 6. SEEKER & AUDIO CONTROL MODULES */
 .playback-bar .x-progressBar-fill {
     background-color: var(--cyber-cyan) !important;
     filter: drop-shadow(0 0 5px var(--cyber-cyan));
@@ -96,7 +102,7 @@
     background-color: var(--cyber-yellow) !important;
 }
 
-/* 6. MINIMALIST MATRIX SCROLLBAR */
+/* 7. MINIMALIST MATRIX SCROLLBAR */
 ::-webkit-scrollbar {
     width: 3px;
 }
@@ -107,7 +113,7 @@
     background: var(--cyber-black);
 }
 
-/* 7. GAME INITIALIZATION INITIAL BOOT OVERLAY */
+/* 8. GAME INITIALIZATION INITIAL BOOT OVERLAY */
 #cyber-boot-overlay {
     position: fixed;
     top: 0;
@@ -126,7 +132,6 @@
     overflow: hidden;
 }
 
-/* Moving Cyber Scanline effect across screen space */
 .scanline-hud {
     position: absolute;
     top: 0;
@@ -147,7 +152,6 @@
     animation: cyberScan 2s linear infinite;
 }
 
-/* Terminal Framework Container */
 .boot-matrix {
     width: 85%;
     max-width: 650px;
@@ -159,7 +163,6 @@
     position: relative;
 }
 
-/* Tactical UI Warning Headers */
 .cyber-warning-header {
     color: var(--cyber-magenta);
     font-size: 11px;
@@ -177,7 +180,6 @@
     opacity: 0;
 }
 
-/* Automated Typing Sequence Timings */
 .boot-matrix p:nth-child(2) { animation-delay: 0.1s; }
 .boot-matrix p:nth-child(3) { animation-delay: 0.35s; }
 .boot-matrix p:nth-child(4) { animation-delay: 0.6s; }
@@ -185,7 +187,6 @@
 .boot-matrix p:nth-child(6) { animation-delay: 1.1s; }
 .boot-matrix p:nth-child(7) { animation-delay: 1.35s; }
 
-/* The Final Splashtext Layout */
 .cyber-final-prompt {
     margin-top: 25px;
     font-size: 20px;
@@ -200,32 +201,27 @@
     animation-delay: 1.8s;
 }
 
-/* Colors utility mapping */
 .boot-matrix .yellow { color: var(--cyber-yellow); }
 .boot-matrix .cyan { color: var(--cyber-cyan); }
 .boot-matrix .magenta { color: var(--cyber-magenta); }
 
-/* Keyframe animations */
 @keyframes typing {
     from { width: 0; opacity: 1; }
     to { width: 100%; opacity: 1; }
 }
-
 @keyframes glitchReveal {
     from { opacity: 0; transform: scale(0.98); }
     to { opacity: 1; transform: scale(1); }
 }
-
 @keyframes cyberScan {
     0% { top: -5%; }
     100% { top: 105%; }
 }
-
 #cyber-boot-overlay.fade-out {
     opacity: 0;
 }
 
-/* 8. TACTICAL DECK MENU LAYOUT */
+/* 9. TACTICAL DECK MENU LAYOUT */
 #cyber-deck-btn {
     background: #000000 !important;
     border: 1px solid var(--cyber-cyan) !important;
@@ -239,12 +235,10 @@
     position: relative;
     z-index: 99999;
 }
-
 #cyber-deck-btn:hover {
     background: rgba(0, 240, 255, 0.1) !important;
     box-shadow: 0 0 8px var(--cyber-cyan) !important;
 }
-
 #cyber-deck-menu {
     position: absolute;
     top: 34px;
@@ -255,7 +249,6 @@
     text-align: left;
     box-shadow: 0 0 15px rgba(255, 0, 85, 0.3) !important;
 }
-
 .cyber-deck-item {
     padding: 8px 12px;
     color: #ffffff !important;
@@ -264,7 +257,6 @@
     border-bottom: 1px dashed rgba(255, 0, 85, 0.2);
     cursor: pointer;
 }
-
 .cyber-deck-item:hover {
     background: rgba(255, 238, 0, 0.1) !important;
     color: var(--cyber-yellow) !important;
