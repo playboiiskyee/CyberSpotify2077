@@ -1,0 +1,271 @@
+/* ==========================================================================
+   MINIMALIST CYBERPUNK 2077 (NETRUNNER CORE EDITION)
+   ========================================================================== */
+
+:root {
+    --cyber-yellow: #ffee00;
+    --cyber-cyan: #00f0ff;
+    --cyber-magenta: #ff0055;
+    --cyber-black: #000000;
+    --cyber-grid: rgba(0, 240, 255, 0.03);
+}
+
+/* 1. SEAMLESS INTERFACE & BORDERLESS CANVAS */
+* {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+}
+
+/* Eradicate stock layout panels and structural borders */
+.Root__top-container,
+.main-navBar-navBar,
+.Root__now-playing-bar,
+.main-rootlist-rootlist,
+.main-view-container,
+.main-nowPlayingBar-container {
+    border: none !important;
+    background-color: var(--cyber-black) !important;
+}
+
+/* Inject abstract netrunner matrix grid onto the background canvas */
+.Root__top-container {
+    background-image: 
+        linear-gradient(var(--cyber-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--cyber-grid) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* 2. MAIN TRACK ROW HOVERS */
+.main-trackList-trackListRow {
+    border-left: 2px solid transparent;
+    transition: all 0.15s ease;
+}
+
+/* Track row selection and hovers using subtle cyan tint */
+.main-trackList-trackListRow--isSelected, 
+.main-trackList-trackListRow:hover {
+    background-color: rgba(0, 240, 255, 0.07) !important;
+    border-left: 2px solid var(--cyber-cyan);
+}
+
+/* Active playing song row gets a yellow notification accent */
+.main-trackList-trackListRow--active {
+    background-color: rgba(255, 238, 0, 0.05) !important;
+}
+
+/* 3. SIDEBAR NAVIGATION SYSTEMS */
+.main-navBar-navBarLinkActive,
+.main-collectionLinkButton-collectionLinkButtonActive {
+    background: linear-gradient(90deg, rgba(255, 238, 0, 0.08) 0%, transparent 100%) !important;
+    border-left: 3px solid var(--cyber-yellow) !important;
+    color: var(--cyber-yellow) !important;
+}
+
+/* Mute inactive tabs to maintain high contrast hierarchy */
+.main-navBar-navBarLink:not(.main-navBar-navBarLinkActive) {
+    color: #555566 !important;
+}
+.main-navBar-navBarLink:not(.main-navBar-navBarLinkActive):hover {
+    color: var(--cyber-cyan) !important;
+}
+
+/* 4. GLOWING ACTION HUD BUTTONS */
+.main-playButton-playButton, .main-playButton-PrimaryButtons {
+    background-color: var(--cyber-yellow) !important;
+    color: var(--cyber-black) !important;
+    filter: drop-shadow(0 0 6px var(--cyber-yellow));
+}
+
+.main-playButton-playButton:hover {
+    background-color: var(--cyber-cyan) !important;
+    filter: drop-shadow(0 0 10px var(--cyber-cyan));
+}
+
+/* 5. SEEKER & AUDIO CONTROL MODULES */
+.playback-bar .x-progressBar-fill {
+    background-color: var(--cyber-cyan) !important;
+    filter: drop-shadow(0 0 5px var(--cyber-cyan));
+}
+
+.playback-bar .x-progressBar-progressBarBg {
+    background-color: #111116 !important;
+}
+
+/* Volume Slider styling node */
+.VolumeBar .x-progressBar-fill {
+    background-color: var(--cyber-yellow) !important;
+}
+
+/* 6. MINIMALIST MATRIX SCROLLBAR */
+::-webkit-scrollbar {
+    width: 3px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--cyber-magenta);
+}
+::-webkit-scrollbar-track {
+    background: var(--cyber-black);
+}
+
+/* 7. GAME INITIALIZATION INITIAL BOOT OVERLAY */
+#cyber-boot-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 999999 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden;
+}
+
+/* Moving Cyber Scanline effect across screen space */
+.scanline-hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 6px 100%;
+    opacity: 0.15;
+}
+.scanline-hud::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 240, 255, 0.2);
+    animation: cyberScan 2s linear infinite;
+}
+
+/* Terminal Framework Container */
+.boot-matrix {
+    width: 85%;
+    max-width: 650px;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 2.2;
+    border-left: 2px solid var(--cyber-magenta);
+    padding-left: 25px;
+    position: relative;
+}
+
+/* Tactical UI Warning Headers */
+.cyber-warning-header {
+    color: var(--cyber-magenta);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed rgba(255, 0, 85, 0.3);
+    padding-bottom: 5px;
+}
+
+.boot-matrix p {
+    margin: 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 0.25s steps(40, end) forwards;
+    opacity: 0;
+}
+
+/* Automated Typing Sequence Timings */
+.boot-matrix p:nth-child(2) { animation-delay: 0.1s; }
+.boot-matrix p:nth-child(3) { animation-delay: 0.35s; }
+.boot-matrix p:nth-child(4) { animation-delay: 0.6s; }
+.boot-matrix p:nth-child(5) { animation-delay: 0.85s; }
+.boot-matrix p:nth-child(6) { animation-delay: 1.1s; }
+.boot-matrix p:nth-child(7) { animation-delay: 1.35s; }
+
+/* The Final Splashtext Layout */
+.cyber-final-prompt {
+    margin-top: 25px;
+    font-size: 20px;
+    color: var(--cyber-yellow);
+    text-shadow: 0 0 10px var(--cyber-yellow);
+    letter-spacing: 1px;
+    border: 1px solid var(--cyber-yellow);
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    animation: glitchReveal 0.3s steps(3, end) forwards;
+    animation-delay: 1.8s;
+}
+
+/* Colors utility mapping */
+.boot-matrix .yellow { color: var(--cyber-yellow); }
+.boot-matrix .cyan { color: var(--cyber-cyan); }
+.boot-matrix .magenta { color: var(--cyber-magenta); }
+
+/* Keyframe animations */
+@keyframes typing {
+    from { width: 0; opacity: 1; }
+    to { width: 100%; opacity: 1; }
+}
+
+@keyframes glitchReveal {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes cyberScan {
+    0% { top: -5%; }
+    100% { top: 105%; }
+}
+
+#cyber-boot-overlay.fade-out {
+    opacity: 0;
+}
+
+/* 8. TACTICAL DECK MENU LAYOUT */
+#cyber-deck-btn {
+    background: #000000 !important;
+    border: 1px solid var(--cyber-cyan) !important;
+    color: var(--cyber-cyan) !important;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 0px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 99999;
+}
+
+#cyber-deck-btn:hover {
+    background: rgba(0, 240, 255, 0.1) !important;
+    box-shadow: 0 0 8px var(--cyber-cyan) !important;
+}
+
+#cyber-deck-menu {
+    position: absolute;
+    top: 34px;
+    left: 0;
+    background: #000000 !important;
+    border: 1px solid var(--cyber-magenta) !important;
+    width: 180px;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.3) !important;
+}
+
+.cyber-deck-item {
+    padding: 8px 12px;
+    color: #ffffff !important;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    border-bottom: 1px dashed rgba(255, 0, 85, 0.2);
+    cursor: pointer;
+}
+
+.cyber-deck-item:hover {
+    background: rgba(255, 238, 0, 0.1) !important;
+    color: var(--cyber-yellow) !important;
+}
