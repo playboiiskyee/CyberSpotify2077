@@ -1,13 +1,13 @@
 {
-  "name": "CyberSpotify2077",
-  "description": "CyberPunk2077 Themed layout configuration for Spotify.",
-  "preview": "preview.png",
-  "readme": "README.md",
-  "authors": [
-    {
-      "name": "playboiiskyee",
-      "url": "https://github.com/playboiiskyee"
-    }
-  ],
-  "tags": ["cyberpunk", "dark"]
+    "name": "CyberSpotify2077",
+    "description": "A Cyberpunk 2077 inspired theme for Spotify.",
+    "preview": "preview.png",
+    "readme": "README.md",
+    "usercss": "user.css",
+    "schemes": "color.ini",
+    "include": ["theme.js"],
+    "authors": [
+        { "name": "VelvetSkye", "url": "https://github.com/playboiiskyee" }
+    ],
+    "tags": ["dark", "cyberpunk"]
 }
